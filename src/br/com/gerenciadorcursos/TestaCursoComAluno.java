@@ -22,5 +22,13 @@ public class TestaCursoComAluno {
         javaCollections.getAlunos().forEach(a -> {
             System.out.println(a);
         });
+
+        System.out.println(javaCollections.estaMatriculado(a1));
+
+        Aluno caroline = new Aluno("caroline", 456);
+        System.out.println("Caroline está matriculado?");
+        System.out.println(javaCollections.estaMatriculado(caroline));
+
+        /*comentando o equals and hash code da classe aluno dá pra ver o funcionamento*/
     }
 }
