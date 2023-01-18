@@ -1,14 +1,13 @@
 package br.com.gerenciadorcursos;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Curso {
 
     private String nome;
     private String instrutor;
     private List<Aula> aulas = new LinkedList<>();
+    private Set<Aluno> alunos = new HashSet<>();
 
     public Curso(String nome, String instrutor) {
         this.nome = nome;
@@ -27,7 +26,11 @@ public class Curso {
         return Collections.unmodifiableList(aulas);
     }
 
-   public void adiciona(Aula aula) {
+    public Set<Aluno> getAlunos() {
+        return Collections.unmodifiableSet(alunos);
+    }
+
+    public void adiciona(Aula aula) {
         this.aulas.add(aula);
    }
 
@@ -38,5 +41,9 @@ public class Curso {
     @Override
     public String toString() {
         return "[Curso: " + this.nome + ", duração total: " + this.getTempoTotal() + " minutos]";
+    }
+
+    public void matricular(Aluno aluno) {
+        this.alunos.add(aluno);
     }
 }
